@@ -1,9 +1,9 @@
-import Searchbar from "@/app/(with-searchbar)/Searchbar";
+import SearchBar from "@/components/Searchbar";
 
 export default function Layout({ children }) {
   return (
     <div>
-      <Searchbar />
+      <SearchBar />
       {children}
     </div>
   );

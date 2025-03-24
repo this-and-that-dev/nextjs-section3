@@ -1,20 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Searchbar(props) {
   const [search, setSearch] = useState("");
 
+  const router = useRouter();
+
+  const onSubmit = () => {
+    router.push(`/search?q=${search}`);
+  };
+
   return (
     <div>
-      <input />
-      <button
+      <input
         onChange={(event) => {
           setSearch(event.target.value);
         }}
-      >
-        검색
-      </button>
+      />
+      <button onClick={onSubmit}>검색</button>
     </div>
   );
 }
