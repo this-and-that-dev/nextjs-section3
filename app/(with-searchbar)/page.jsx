@@ -6,7 +6,7 @@ async function AllBooks() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
     {
-      cache: "no-store",
+      cache: "force-cache",
     },
   );
   if (!response.ok) {
@@ -28,7 +28,7 @@ async function RecoBooks() {
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
     {
       next: {
-        revalidate: 3,
+        revalidate: 1,
       },
     },
   );
