@@ -3,6 +3,9 @@ import BookItem from "@/components/book-item";
 export default async function Page({ searchParams }) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${searchParams.q}`,
+    {
+      cache: "force-cache",
+    },
   );
 
   if (!response.ok) {

@@ -1,4 +1,9 @@
 import style from "./page.module.css";
+import { notFound } from "next/navigation";
+
+export function generateStaticParams() {
+  return [{ id: "1" }, { id: "2" }, { id: "3" }];
+}
 
 export default async function Page({ params }) {
   const response = await fetch(
@@ -6,6 +11,9 @@ export default async function Page({ params }) {
   );
 
   if (!response.ok) {
+    if (response.status === 404) {
+      notFound();
+    }
     return <div>오류가 발생하였습니다....</div>;
   }
   const { id, title, subTitle, description, author, publisher, coverImgUrl } =
