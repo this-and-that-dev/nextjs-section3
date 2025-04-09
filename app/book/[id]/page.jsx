@@ -1,6 +1,5 @@
 import style from "./page.module.css";
 import { notFound } from "next/navigation";
-import createReviewAction from "@/actions/create-review.action";
 import ReviewItem from "@/components/review-item";
 import ReviewEditor from "@/components/review-editor";
 
@@ -66,8 +65,7 @@ async function ReviewList({ bookId }) {
 }
 
 export default async function Page({ params }) {
-  const requestParams = await params;
-  const bookId = requestParams.id;
+  const bookId = params.id;
 
   return (
     <div className={style.container}>

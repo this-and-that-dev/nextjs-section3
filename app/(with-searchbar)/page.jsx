@@ -6,7 +6,7 @@ import BookItemSkeleton from "@/components/skeleton/book-item-skeleton";
 
 //모든 도서
 async function AllBooks() {
-  await delay(1500);
+  // await delay(1500);
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
     {
@@ -28,7 +28,7 @@ async function AllBooks() {
 }
 //추천 도서
 async function RecoBooks() {
-  await delay(3000);
+  // await delay(3000);
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
     {
